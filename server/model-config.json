@@ -15,7 +15,7 @@
   },
   "User": {
     "dataSource": "mysqlDb",
-    "public":false
+    "public": false
   },
   "AccessToken": {
     "dataSource": "mysqlDb",
@@ -39,5 +39,9 @@
   "Client": {
     "dataSource": "mysqlDb",
     "public": true
+  },
+  "Widget": {
+    "dataSource": "mysqlDb",
+    "public": false
   }
 }

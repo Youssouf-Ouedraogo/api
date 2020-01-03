@@ -5,6 +5,9 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "Timestamps": true
+  },
   "properties": {
     "firstname": {
       "type": "string",
@@ -16,10 +19,35 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {},
-  "mixins":{
-    "Timestamps":true
-  }
+  "relations": {
+    "widgets": {
+      "type": "hasMany",
+      "model": "Widget",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "__get__widgets",
+        "__updateById__widgets",
+        "__delete__widgets",
+        "__findById__widgets",
+        "__destroyById__widgets",
+        "__count__widgets"
+      ]
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__create__widgets"
+    }
+  ],
+  "methods": {}
 }
